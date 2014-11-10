@@ -14,9 +14,10 @@
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  (cond (nil? coll) nil
-        :else (cons (last coll)
-                    (recursive-reverse (butlast coll)))))
+  (if (nil? coll)
+    nil
+    (cons (last coll)
+          (recursive-reverse (butlast coll)))))
 
 (defn factorial [n]
   (reduce (fn [a n] (*' a n)) (range 1 (+ 1 n))))
